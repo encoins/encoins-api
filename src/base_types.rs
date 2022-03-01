@@ -67,7 +67,7 @@ impl UserId
 impl Display for UserId
 {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f,self.to_string())
+        write!(f,"{}",self.to_string())
     }
 }
 
