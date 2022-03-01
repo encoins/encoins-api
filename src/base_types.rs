@@ -86,6 +86,27 @@ impl Transaction
             amount
         }
     }
+
+    pub fn seq_id(&self) -> SeqId
+    {
+        self.seq_id
+    }
+
+    pub fn sender_id(&self) -> &UserId
+    {
+        &self.sender_id
+    }
+
+    pub fn receiver_id(&self) -> &UserId
+    {
+        &self.receiver_id
+    }
+
+    pub fn amount(&self) -> Currency
+    {
+        self.amount
+    }
+
 }
 
 impl Display for UserId
