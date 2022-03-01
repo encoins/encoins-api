@@ -1,7 +1,7 @@
-mod base_types;
-mod transfer;
-mod instruction;
-mod response;
+pub mod base_types;
+pub mod transfer;
+pub mod instruction;
+pub mod response;
 
 #[cfg(test)]
 mod tests
