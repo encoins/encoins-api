@@ -67,6 +67,11 @@ impl UserId
         }
         result
     }
+
+    pub fn get_id(&self) -> ComprPubKey
+    {
+        self.id
+    }
 }
 
 impl Display for UserId
