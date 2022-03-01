@@ -35,7 +35,7 @@ pub struct Transaction
 impl UserId
 {
     /// Builds a UserId from a String
-    pub fn from(string : &String) -> Result<UserId,String>
+    pub fn from_string(string : &String) -> Result<UserId,String>
     {
         let mut result : [u8;32] = [0;32];
         for i in 0..32
@@ -46,6 +46,11 @@ impl UserId
         }
 
         Ok(UserId{id : result})
+    }
+
+    pub fn from_bytes(bytes: [u8;32]) -> UserId
+    {
+        UserId{id : bytes}
     }
 
     /// Transforms a String into a UserId
