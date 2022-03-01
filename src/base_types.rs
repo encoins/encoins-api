@@ -5,7 +5,7 @@ use std::fmt::{Display, Formatter};
 
 pub type ComprPubKey = [u8; 32];
 
-#[derive(Clone, PartialEq,Debug,Serialize,Deserialize)]
+#[derive(Clone, PartialEq,Debug,Serialize,Deserialize,Eq,Hash)]
 pub struct UserId
 {
     pub id : ComprPubKey
