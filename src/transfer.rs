@@ -1,10 +1,10 @@
 use ed25519_dalek::{Keypair, PublicKey, Signature, Signer, Verifier};
 use crate::base_types::{ComprPubKey, Currency, UserId};
-use serde::Serialize;
+use serde::{Serialize,Deserialize};
 use crate::instruction::Instruction;
 
 /// A transfer is a transaction request by a user
-#[derive(Clone, Serialize,Debug)]
+#[derive(Clone,Serialize,Deserialize,Debug)]
 pub struct Transfer
 {
     pub sender : UserId,

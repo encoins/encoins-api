@@ -1,10 +1,10 @@
 use std::fmt::{Display, Formatter};
 use crate::base_types::UserId;
 use crate::transfer::Transfer;
-use serde::Serialize;
+use serde::{Serialize,Deserialize};
 
 
-#[derive(Clone,Serialize,Debug)]
+#[derive(Clone,Serialize,Debug,Deserialize)]
 pub enum Instruction {
     SignedTransfer
     {
