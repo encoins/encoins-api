@@ -4,7 +4,7 @@ use serde::{Serialize,Deserialize};
 use crate::instruction::Instruction;
 
 /// A transfer is a transaction request by a user
-#[derive(Clone,Serialize,Deserialize,Debug)]
+#[derive(Clone,Copy,Serialize,Deserialize,Debug)]
 pub struct Transfer
 {
     pub sender : UserId,

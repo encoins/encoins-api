@@ -1,7 +1,7 @@
 use crate::base_types::Currency;
 use serde::{Serialize,Deserialize};
 
-#[derive(Serialize,Deserialize)]
+#[derive(Copy,Clone,Serialize,Deserialize)]
 pub enum Response
 {
     Balance(Currency),
