@@ -8,7 +8,7 @@ use serde::Serialize;
 pub enum Instruction {
     SignedTransfer
     {
-        transfer : Transfer,
+         transfer : Transfer,
         signature : Vec<u8> // vec of (signature .to_byte (easier to serialize))
     },
 

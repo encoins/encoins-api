@@ -8,7 +8,7 @@ pub type ComprPubKey = [u8; 32];
 #[derive(Clone, PartialEq,Debug,Serialize,Deserialize)]
 pub struct UserId
 {
-    id : ComprPubKey
+    pub id : ComprPubKey
 }
 
 /// For the moment, the currency is encoded in a 32-bit integer. Defining how to deal with currency is still to be determined
@@ -22,13 +22,13 @@ pub type SeqId = u32;
 pub struct Transaction
 {
     /// seq_id is the id of the transaction. For a transaction t, seq_id will be the number of validated transfers outgoing form the sender +1.
-    seq_id: SeqId,
+    pub seq_id: SeqId,
     /// the user id of the transaction's sender
-    sender_id: UserId,
+    pub sender_id: UserId,
     /// the user id of the transaction's receiver
-    receiver_id: UserId,
+    pub receiver_id: UserId,
     /// the currency exchanged
-    amount: Currency
+    pub amount: Currency
 }
 
 
@@ -67,11 +67,6 @@ impl UserId
         }
         result
     }
-
-    pub fn get_id(&self) -> ComprPubKey
-    {
-        self.id
-    }
 }
 
 impl Transaction
@@ -85,26 +80,6 @@ impl Transaction
             receiver_id,
             amount
         }
-    }
-
-    pub fn seq_id(&self) -> SeqId
-    {
-        self.seq_id
-    }
-
-    pub fn sender_id(&self) -> &UserId
-    {
-        &self.sender_id
-    }
-
-    pub fn receiver_id(&self) -> &UserId
-    {
-        &self.receiver_id
-    }
-
-    pub fn amount(&self) -> Currency
-    {
-        self.amount
     }
 
 }
