@@ -41,15 +41,19 @@ impl UserId
         for i in 0..32
         {
             let el1 = match string.as_bytes().get(2*i) {
-                Ok(e) => { let el = e - b"a".get(0).unwrap();
-                    if el < 0 || el > 15 { return Err(String::from("Invalid character")) }
+                Some(e) => { let ba = b"a".get(0).unwrap();
+                    if e < ba {return Err(String::from("Invalid character")) }
+                    let el = e - ba;
+                    if el > 15 { return Err(String::from("Invalid character")) }
                     el
                 }
                 None => {return Err(String::from("The key is too short"))}
             };
             let el2 = match string.as_bytes().get(2*i + 1) {
-                Ok(e) => { let el = e - b"a".get(0).unwrap();
-                    if el < 0 || el > 15 { return Err(String::from("Invalid character")) }
+                Some(e) => { let ba = b"a".get(0).unwrap();
+                    if e < ba {return Err(String::from("Invalid character")) }
+                    let el = e - ba;
+                    if el > 15 { return Err(String::from("Invalid character")) }
                     el
                 }
                 None => {return Err(String::from("The key is too short"))}
