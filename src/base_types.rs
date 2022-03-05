@@ -40,8 +40,20 @@ impl UserId
         let mut result : [u8;32] = [0;32];
         for i in 0..32
         {
-            let el1 = string.as_bytes()[2*i] - b"a".get(0).unwrap();
-            let el2 = string.as_bytes()[2*i+1] - b"a".get(0).unwrap();
+            let el1 = match string.as_bytes().get(2*i) {
+                Ok(e) => { let el = e - b"a".get(0).unwrap();
+                    if el < 0 || el > 15 { return Err(String::from("Invalid character")) }
+                    el
+                }
+                None => {return Err(String::from("The key is too short"))}
+            };
+            let el2 = match string.as_bytes().get(2*i + 1) {
+                Ok(e) => { let el = e - b"a".get(0).unwrap();
+                    if el < 0 || el > 15 { return Err(String::from("Invalid character")) }
+                    el
+                }
+                None => {return Err(String::from("The key is too short"))}
+            };
             result[i] = el1 + (el2 << 4);
         }
 
